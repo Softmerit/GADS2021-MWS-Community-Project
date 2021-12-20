@@ -1,6 +1,10 @@
 # DovaAcademy is an online learning portal. GADS2021 MWS Community Project
+Get Access to courses for career advancement with ease.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4.
+
+## REST API
+Fetching data from Udemy Affiliate API
 
 ## Development server
 
