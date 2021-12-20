@@ -1,4 +1,4 @@
-# EduApp
+# DovaAcademy is an online learning portal. GADS2021 MWS Community Project
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4.
 
