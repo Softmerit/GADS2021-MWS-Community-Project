@@ -1,0 +1,17 @@
+
+
+<div class="course_banner"></div>
+<app-navheader></app-navheader>
+<div class="wrapper">
+    <div class="course_title">
+        <h2> Our Courses</h2>
+    </div>
+    <div class="card_wrap">
+        <div class="card" *ngFor="let com of lstdata">
+            <div class="card_title">
+                <h2>{{com.name}}</h2>
+            </div>
+        </div>
+    </div>
+<!-- router get injected here-->
+<router-outlet></router-outlet>
