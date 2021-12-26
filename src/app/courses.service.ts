@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError, tap, Observable } from 'rxjs';
+import { map } from 'rxjs/operators'
+import { Comments } from './classes/comments';
 
 @Injectable({
   providedIn: 'root'
@@ -20,12 +22,20 @@ export class CoursesService {
     }).set( 'Access-Control-Allow-Origin', "*")
 
         }
-    public baseurl ='https://www.udemy.com/api-2.0/courses/';
+    //public baseurl ='https://fierce-bayou-79908.herokuapp.com/https://aqueous-fjord-24538.herokuapp.com/courses';
 
   constructor( private httpclient: HttpClient) { }
 
- getCourses(): Observable<any>{
-    return this.httpclient.get(this.baseurl, this.headers);
-  }
+  async getCourses(){
+    return  await this.httpclient.get<any>('https://fierce-bayou-79908.herokuapp.com/https://aqueous-fjord-24538.herokuapp.com/courses').pipe(
+      map((res) => {
+       //console.log(res);
+        let rows = res.results;
 
+       // console.log(rows);
+        return Object.values(rows)
+        
+      })    
+        
+    )}
 }

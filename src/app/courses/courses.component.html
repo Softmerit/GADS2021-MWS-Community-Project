@@ -1,17 +1,32 @@
-
-
 <div class="course_banner"></div>
-<app-navheader></app-navheader>
 <div class="wrapper">
     <div class="course_title">
-        <h2> Our Courses</h2>
+        <h2> Explore Our Courses</h2>
     </div>
-    <div class="card_wrap">
-        <div class="card" *ngFor="let com of lstdata">
-            <div class="card_title">
-                <h2>{{com.name}}</h2>
-            </div>
+    <div class="card_wrapper">
+            <div class="card" *ngFor="let item of courses">
+                <div class="card_title">
+                    <h1>Course Title</h1>
+                    <p>{{item.title}}</p>
+                    <div class="course_des">
+                        <h1>Course Description</h1>
+                        <p>{{item.headline}}</p>
+                    </div>
+                    <div class="course_id">
+                        <h1>Course ID</h1>
+                        <p>{{item.id}}</p>
+                    </div>
+                    <div class="course_price">
+                        <h1>Price</h1>
+                        <p>{{item.price}}</p>
+                    </div>
+                    <div class="course_link">
+                        <h1>Course Link</h1>
+                        <p>{{item.url}}</p>
+                    </div>
+                </div>
         </div>
     </div>
+    <app-footer></app-footer>
 <!-- router get injected here-->
 <router-outlet></router-outlet>

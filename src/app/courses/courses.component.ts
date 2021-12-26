@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { map, publish, Subject, takeUntil, tap } from 'rxjs'; 
 import { CoursesService } from '../courses.service';
 import { Comments } from '../classes/comments';
 
@@ -9,19 +10,28 @@ import { Comments } from '../classes/comments';
   styleUrls: ['./courses.component.css']
 })
 export class CoursesComponent implements OnInit {
-    lstdata:Comments[];
+
+closeActive= new Subject<void>();
+
+  
   constructor(private _CoursesService: CoursesService) { }
-        
-   ngOnInit(): void {
-    this._CoursesService.getCourses()
-      .subscribe
-      (
-        data=>{
-          console.warn(data)
-          this.lstdata = data
-        }
-      )
-        
-  }
+  courses: any;
+
+ async  ngOnInit():Promise<void> {
+    (await this._CoursesService.getCourses()).subscribe
+      ({
+          next: (result:any) =>{
+            this.courses =  result;
+            //console.log(result);
+            return result;
+          }
+      })
+    }
+
+
+ngOnDestroy(){
+  this.closeActive.next();
+  this.closeActive.complete();
+}
 
 }
