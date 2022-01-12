@@ -8,6 +8,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## REST API
 Fetching data from Udemy Affiliate API
 
+![coursespage](https://user-images.githubusercontent.com/42244705/149127442-edd8514e-49e9-460b-9c46-599d30f96cf6.JPG)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
